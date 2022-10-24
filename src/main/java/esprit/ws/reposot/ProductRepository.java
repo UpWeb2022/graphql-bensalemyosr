@@ -32,7 +32,7 @@ public class ProductRepository {
     //function to return the list of product by Category
     public List<Product> getProductByCategoryRef(int ref) {
 		List<Product> list=new ArrayList<Product>();
-		for(Product p:list){
+		for(Product p:listProduct){
 			if(p.getCategory().getRef()==ref)
 				list.add(p);
 		}
@@ -40,17 +40,19 @@ public class ProductRepository {
 	}
     //update Product
     public boolean updateProduct(Product product){
- 		int index=listProduct.indexOf(product);
- 		if(index!=-1){
- 			Category category=catRepo.getCategoryByRef(product.getCategory().getRef());
- 			if(category!=null){
- 				product.setCategory(category);
- 				listProduct.set(index, product);
+ 		for (Product p: listProduct)
+ 		{
+ 			if(p.getId()==product.getId())
+ 			{
+ 				p.setName(product.getName());
+ 				p.setCategory(product.getCategory());
+ 				p.setPrice(product.getPrice());
  				return true;
- 			}	
+ 			}
  		}
  		return false;
  	}
+    
     public void deleteProduct(int id){
     		Product p = this.getProductById(id);
     		this.listProduct.remove(p);

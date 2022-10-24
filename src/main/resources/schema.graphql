@@ -24,6 +24,9 @@ type Mutation
 createCategory(ref:Int,name:String):Category
 updateCategory(ref:Int,name:String):Category
 deleteCategory(ref:Int):String
+addProduct(id:Int,name:String,price:Int,ref:Int):Boolean
+deleteProduct(id:Int):String
+updateProduct(id:Int,name:String,price:Int,ref:Int):Boolean
 }
 schema
 {

@@ -44,9 +44,12 @@ public class CategoryRepository {
 	}
 	public void updateCategory(Category c) {
 		for(Category c2:this.listCategory) {
+			
 			if(c2.getRef()==c.getRef()) {
+				
 				c2.setRef(c.getRef());
 				c2.setName(c.getName());
+				
 			}
 		}
 	
