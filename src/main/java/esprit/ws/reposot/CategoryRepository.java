@@ -17,18 +17,19 @@ public class CategoryRepository {
 		listCategory.add(new Category(456, "Category 2"));
 	}
 	//create student
-	public Category createStudent(Category s) {
+	public Category createCategory(Category s) {
 		this.listCategory.add(s);
 		return s;
 	}
 	
-	public List<Category>getListStudent()
+	public List<Category>getListCategory()
 	{return listCategory;}
 
+	
 	public Category getCategoryByRef(int ref)
 	{
 		for (Category S:listCategory)
-		{if (S.equals(ref))
+		{if (S.getRef()==ref)
 			
 		return S;
 		
@@ -41,10 +42,12 @@ public class CategoryRepository {
 		this.listCategory.remove(c);
 		
 	}
-	public void updateStudent(Category c) {
-		int i = listCategory.indexOf(c);
-		if(i!=-1) {
-			this.listCategory.set(i, c);
+	public void updateCategory(Category c) {
+		for(Category c2:this.listCategory) {
+			if(c2.getRef()==c.getRef()) {
+				c2.setRef(c.getRef());
+				c2.setName(c.getName());
+			}
 		}
 	
 	}

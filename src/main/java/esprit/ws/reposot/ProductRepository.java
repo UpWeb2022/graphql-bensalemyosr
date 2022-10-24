@@ -15,6 +15,7 @@ public class ProductRepository {
 		listProduct.add(new Product(1, "Product 1", this.catRepo.getCategoryByRef(123) ,40));
 		listProduct.add(new Product(2, "Product 2", this.catRepo.getCategoryByRef(456) ,10));
 	}
+	
     public List<Product> getListProduct() {
 		return listProduct;
     }
@@ -59,7 +60,7 @@ public class ProductRepository {
     public Product getProductById(int id)
 	{
 		for (Product p:listProduct)
-		{if (p.equals(id))
+		{if (p.getId() ==id)
 			
 		return p;
 		

@@ -1,0 +1,32 @@
+type Category
+{
+ref:Int
+name:String
+}
+type Product 
+{
+id:Int
+name:String
+category:Category
+price:Int
+
+}
+type Query
+{
+getListCategory:[Category]
+getCategoryByRef(ref:Int):Category
+getListProduct:[Product]
+getProductById(id:Int):Product
+getProductByCategoryRef(ref:Int):[Product]
+}
+type Mutation
+{
+createCategory(ref:Int,name:String):Category
+updateCategory(ref:Int,name:String):Category
+deleteCategory(ref:Int):String
+}
+schema
+{
+query:Query
+mutation:Mutation
+}
